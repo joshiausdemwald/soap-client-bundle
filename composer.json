@@ -1,7 +1,6 @@
 {
     "name": "joshiausdemwald/soap-client-bundle",
-    "minimum-stability" : "dev",
-    "prefer-stable" : true,
+    "minimum-stability" : "stable",
     "authors": [
         {
             "name": "Johannes Heinen",
@@ -11,8 +10,8 @@
     "require" : {
         "symfony/http-kernel" : ">=2.3.0,<3.0.0",
         "symfony/dependency-injection" : ">=2.3.0,<3.0.0",
-        "phpforce/soap-client" : "dev-master",
-        "phpforce/common" : "dev-master"
+        "phpforce/soap-client" : "dev-master@dev",
+        "phpforce/common" : "dev-master@dev"
     },
     "autoload" : {
         "psr-0" : {
