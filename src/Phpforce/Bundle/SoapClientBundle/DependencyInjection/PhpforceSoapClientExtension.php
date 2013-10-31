@@ -21,6 +21,7 @@ class PhpforceSoapClientExtension extends Extension
         $container->setParameter('soap_client.sf_password', $config['sf_password']);
         $container->setParameter('soap_client.sf_security_token', $config['sf_security_token']);
         $container->setParameter('soap_client.wsdl_path', $config['wsdl_path']);
+        $container->setParameter('soap_client.force_cache_reload', $config['force_cache_reload']);
 
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
 

@@ -20,11 +20,19 @@ class MetadataCacheWarmer implements CacheWarmerInterface
     private $client;
 
     /**
-     * @param ClientInterface $warmer
+     * @var bool
      */
-    public function __construct(ClientInterface $client)
+    private $force;
+
+    /**
+     * @param ClientInterface $warmer
+     * @param bool $force
+     */
+    public function __construct(ClientInterface $client, $force = false)
     {
         $this->client = $client;
+
+        $this->force = $force;
     }
 
     /**
@@ -32,7 +40,9 @@ class MetadataCacheWarmer implements CacheWarmerInterface
      */
     public function warmUp($cacheDir)
     {
-        $cacheWarmer = new CacheWarmer($client, $true);
+        $cacheWarmer = new CacheWarmer($this->client, $this->force);
+
+        $cacheWarmer->warmup();
     }
 
     public function isOptional()

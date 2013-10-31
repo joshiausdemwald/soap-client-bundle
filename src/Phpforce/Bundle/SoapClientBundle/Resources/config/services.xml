@@ -5,8 +5,9 @@
 
     <parameters>
         <parameter key="soap_client.client_builder.class">Phpforce\SoapClient\ClientBuilder</parameter>
-        <parameter key="soap_client.class">Phpforce\SoapClient\Client</parameter>
-        <parameter key="soap_client.wsdl.class">Phpforce\Bundle\SoapClient\Soap\WSDL\Wsdl</parameter>
+        <parameter key="soap_client.class">Phpforce\SoapClient\ClientInterface</parameter>
+        <parameter key="soap_client.wsdl.class">Phpforce\SoapClient\Soap\WSDL\Wsdl</parameter>
+        <parameter key="soap_client.cache.class">Doctrine\Common\Cache\FilesystemCache</parameter>
         <parameter key="soap_client.metadata.cache_warmer.class">Phpforce\Bundle\SoapClientBundle\Cache\MetadataCacheWarmer</parameter>
     </parameters>
 
@@ -24,6 +25,12 @@
             <argument>%soap_client.sf_username%</argument>
             <argument>%soap_client.sf_password%</argument>
             <argument>%soap_client.sf_security_token%</argument>
+            <call method="withCache">
+                <argument type="service" id="soap_client.cache" />
+            </call>
+            <call method="withLog">
+                <argument type="service" id="logger" />
+            </call>
         </service>
 
         <service id="soap_client.wsdl" class="%soap_client.wsdl.class%" public="false">
@@ -32,7 +39,12 @@
 
         <service id="soap_client.metadata.cache_warmer" class="%soap_client.metadata.cache_warmer.class%" public="false">
             <argument type="service" id="soap_client" />
+            <argument>%soap_client.force_cache_reload%</argument>
             <tag name="kernel.cache_warmer" priority="0" />
+        </service>
+
+        <service id="soap_client.cache" class="%soap_client.cache.class%">
+            <argument>%kernel.cache_dir%/phpforce_soapclient/</argument>
         </service>
     </services>
 </container>

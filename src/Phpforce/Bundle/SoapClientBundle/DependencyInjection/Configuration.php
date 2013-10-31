@@ -24,6 +24,9 @@ class Configuration
                     ->scalarNode('wsdl_path')
                         ->isRequired()
                     ->end()
+                    ->booleanNode('force_cache_reload')
+                        ->defaultValue(false)
+                    ->end()
                 ->end()
             ->end();
 
