@@ -1,0 +1,24 @@
+{
+    "name": "phpforce/soap-client-bundle",
+    "minimum-stability": "stable",
+    "repositories" : [
+        { "type": "vcs", "url" : "git://github.com/joshiausdemwald/soap-client.git" },
+        { "type": "vcs", "url" : "git@github.com:joshiausdemwald/common-1.git" }
+    ],
+    "authors": [
+        {
+            "name": "Johannes Heinen",
+            "email": "johannes.heinen@code-mitte.de"
+        }
+    ],
+    "require" : {
+        "symfony/http-kernel" : ">=2.3.0,<3.0.0",
+        "phpforce/soap-client" : "dev-metadata@dev",
+        "phpforce/common" : "dev-master@dev"
+    },
+    "autoload" : {
+        "psr-0" : {
+            "Phpforce\\Bundle" : "src/Phpforce/"
+        }
+    }
+}
