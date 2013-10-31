@@ -13,6 +13,7 @@
     ],
     "require" : {
         "symfony/http-kernel" : ">=2.3.0,<3.0.0",
+        "symfony/dependency-injection" : ">=2.3.0,<3.0.0",
         "phpforce/soap-client" : "dev-metadata@dev",
         "phpforce/common" : "dev-master@dev"
     },
