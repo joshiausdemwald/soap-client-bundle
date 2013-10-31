@@ -17,7 +17,10 @@ class PhpforceSoapClientExtension extends Extension
 
         $config = $processor->process($configuration->getConfigTree(), $configs);
 
-        $container->setParameter('codemitte_appliance.custom_webservices.vg_product_registration_web.wsdl_location', $config['custom_webservices']['vg_product_registration_web']['wsdl_location']);
+        $container->setParameter('soap_client.sf_username', $config['sf_username']);
+        $container->setParameter('soap_client.sf_password', $config['sf_password']);
+        $container->setParameter('soap_client.sf_security_token', $config['sf_security_token']);
+        $container->setParameter('soap_client.wsdl_path', $config['wsdl_path']);
 
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
 

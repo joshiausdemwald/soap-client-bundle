@@ -4,23 +4,30 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="soap_client.builder.class">Phpforce\SoapClient\ClientBuilder</parameter>
+        <parameter key="soap_client.client_builder.class">Phpforce\SoapClient\ClientBuilder</parameter>
+        <parameter key="soap_client.class">Phpforce\SoapClient\Client</parameter>
         <parameter key="soap_client.wsdl.class">Phpforce\Bundle\SoapClient\Soap\WSDL\Wsdl</parameter>
-        <parameter key="soap_client.metadata.cache_warmer.class">Phpforce\Bundle\SoapClient\Cache\MetadataCacheWarmer</parameter>
+        <parameter key="soap_client.metadata.cache_warmer.class">Phpforce\Bundle\SoapClientBundle\Cache\MetadataCacheWarmer</parameter>
     </parameters>
 
     <services>
-        <service id="soap_client" factory-service="soap_client.client_builder" factory-method="build" public="true"/>
+        <service
+            id="soap_client"
+            factory-service="soap_client.client_builder"
+            factory-method="build"
+            public="true"
+            class="%soap_client.class%"
+        />
 
-        <service id="soap_client.client_builder" class="%soap_client.client_builder.class%" public="false">
+        <service id="soap_client.client_builder" class="%soap_client.client_builder.class%" public="true">
             <argument type="service" id="soap_client.wsdl" />
-            <argument>%sf_username%</argument>
-            <argument>%sf_password%</argument>
-            <argument>%sf_security_token%</argument>
+            <argument>%soap_client.sf_username%</argument>
+            <argument>%soap_client.sf_password%</argument>
+            <argument>%soap_client.sf_security_token%</argument>
         </service>
 
         <service id="soap_client.wsdl" class="%soap_client.wsdl.class%" public="false">
-            <argument>%wsdl_path%</argument>
+            <argument>%soap_client.wsdl_path%</argument>
         </service>
 
         <service id="soap_client.metadata.cache_warmer" class="%soap_client.metadata.cache_warmer.class%" public="false">
