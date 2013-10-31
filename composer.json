@@ -1,5 +1,5 @@
 {
-    "name": "phpforce/soap-client-bundle",
+    "name": "joshiausdemwald/soap-client-bundle",
     "minimum-stability": "stable",
     "repositories" : [
         { "type": "vcs", "url" : "git://github.com/joshiausdemwald/soap-client.git" },
