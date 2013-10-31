@@ -1,15 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: joshi
- * Date: 31.10.13
- * Time: 14:29
- */
+namespace Phpforce\Bundle\SoapClientBundle\DependencyInjection;
 
-namespace Phpforce\Bundle\SoapClient\DependencyInjection;
-
-use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
+use Symfony\Component\Config\Definition\Processor;
+use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 
 class PhpforceSoapClientExtension extends Extension
 {
