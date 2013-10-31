@@ -45,7 +45,7 @@
 
         <service id="soap_client.cache" class="%soap_client.cache.class%">
             <argument>%kernel.cache_dir%/phpforce_soapclient/</argument>
-            <argument>metadata</argument>
+            <argument>.force_client.cache</argument>
         </service>
     </services>
 </container>
