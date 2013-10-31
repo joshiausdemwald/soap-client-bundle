@@ -6,7 +6,7 @@
  * Time: 13:27
  */
 
-namespace Phpforce\Bundle\SoapClient\Cache;
+namespace Phpforce\Bundle\SoapClientBundle\Cache;
 
 use Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerInterface;
 use Phpforce\SoapClient\ClientInterface;
