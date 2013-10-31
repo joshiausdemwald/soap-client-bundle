@@ -28,9 +28,9 @@
             <call method="withCache">
                 <argument type="service" id="soap_client.cache" />
             </call>
-            <call method="withLog">
+            <!--call method="withLog">
                 <argument type="service" id="logger" />
-            </call>
+            </call-->
         </service>
 
         <service id="soap_client.wsdl" class="%soap_client.wsdl.class%" public="false">
@@ -45,6 +45,7 @@
 
         <service id="soap_client.cache" class="%soap_client.cache.class%">
             <argument>%kernel.cache_dir%/phpforce_soapclient/</argument>
+            <argument>metadata</argument>
         </service>
     </services>
 </container>
