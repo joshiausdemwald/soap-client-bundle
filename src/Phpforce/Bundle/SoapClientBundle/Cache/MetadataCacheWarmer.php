@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: joshi
- * Date: 31.10.13
- * Time: 13:27
- */
-
 namespace Phpforce\Bundle\SoapClientBundle\Cache;
 
 use Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerInterface;

@@ -1,6 +1,9 @@
 {
     "name": "joshiausdemwald/soap-client-bundle",
     "minimum-stability" : "stable",
+    "repositories" : [
+        { "type": "vcs", "url": "git@github.com:joshiausdemwald/CodemitteSoql.git"}
+    ],
     "authors": [
         {
             "name": "Johannes Heinen",
@@ -10,8 +13,9 @@
     "require" : {
         "symfony/http-kernel" : ">=2.3.0,<3.0.0",
         "symfony/dependency-injection" : ">=2.3.0,<3.0.0",
-        "phpforce/soap-client" : "dev-master@dev",
-        "phpforce/common" : "dev-master@dev"
+        "phpforce/query-builder" : "dev-master",
+        "phpforce/soap-client" : "dev-master",
+        "phpforce/common" : "dev-master",
     },
     "autoload" : {
         "psr-0" : {
