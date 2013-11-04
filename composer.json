@@ -1,5 +1,5 @@
 {
-    "name": "joshiausdemwald/soap-client-bundle",
+    "name": "phpforce/soap-client-bundle",
     "minimum-stability" : "stable",
     "repositories" : [
         { "type": "vcs", "url": "git@github.com:joshiausdemwald/CodemitteSoql.git"}
