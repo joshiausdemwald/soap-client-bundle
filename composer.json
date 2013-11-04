@@ -15,7 +15,7 @@
         "symfony/dependency-injection" : ">=2.3.0,<3.0.0",
         "phpforce/query-builder" : "dev-master",
         "phpforce/soap-client" : "dev-master",
-        "phpforce/common" : "dev-master",
+        "phpforce/common" : "dev-master"
     },
     "autoload" : {
         "psr-0" : {
