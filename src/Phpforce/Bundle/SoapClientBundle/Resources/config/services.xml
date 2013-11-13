@@ -4,7 +4,7 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="soap_client.client_builder.class">Phpforce\SoapClient\ClientBuilder</parameter>
+        <parameter key="soap_client.client_factory.class">Phpforce\SoapClient\ClientFactory</parameter>
         <parameter key="soap_client.class">Phpforce\SoapClient\ClientInterface</parameter>
         <parameter key="soap_client.wsdl.class">Phpforce\SoapClient\Soap\WSDL\Wsdl</parameter>
         <parameter key="soap_client.cache.class">Doctrine\Common\Cache\FilesystemCache</parameter>
@@ -14,13 +14,13 @@
     <services>
         <service
             id="soap_client"
-            factory-service="soap_client.client_builder"
+            factory-service="soap_client.client_factory"
             factory-method="build"
             public="true"
             class="%soap_client.class%"
         />
 
-        <service id="soap_client.client_builder" class="%soap_client.client_builder.class%" public="true">
+        <service id="soap_client.client_factory" class="%soap_client.client_factory.class%" public="true">
             <argument type="service" id="soap_client.wsdl" />
             <argument>%soap_client.sf_username%</argument>
             <argument>%soap_client.sf_password%</argument>
